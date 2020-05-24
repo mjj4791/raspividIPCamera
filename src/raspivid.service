@@ -1,0 +1,13 @@
+[Unit]
+Description=raspivid
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/raspivid -w 2592 -h 1944 -b 5000000 -l -o tcp://0.0.0.0:8081 -v -t 0 -fps 5 --intra 5 -fl -cd MJPEG --exposure auto --awb auto --metering average --rotation 270 
+Restart=always
+RestartSec=1
+
+[Install]
+WantedBy=default.target
+
